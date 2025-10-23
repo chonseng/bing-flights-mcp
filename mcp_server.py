@@ -83,5 +83,10 @@ def get_scraper_status() -> dict:
     }
 
 
-if __name__ == "__main__":
+def main():
+    """Entry point for the MCP server."""
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()

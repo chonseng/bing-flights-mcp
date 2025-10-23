@@ -1,6 +1,12 @@
 # Bing Flights MCP Server
 
+[![PyPI version](https://badge.fury.io/py/bing-flights-mcp.svg)](https://pypi.org/project/bing-flights-mcp/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A Model Context Protocol (MCP) server that scrapes flight information from Bing Flights using Playwright. This project provides both a standalone Python scraper module and an MCP server wrapper for integration with MCP-compatible applications.
+
+**📦 [View on PyPI](https://pypi.org/project/bing-flights-mcp/)**
 
 ## Features
 
@@ -15,23 +21,48 @@ A Model Context Protocol (MCP) server that scrapes flight information from Bing 
 
 ```
 bing-flights-mcp/
-├── venv/                      # Virtual environment
+├── pyproject.toml             # Package configuration
 ├── requirements.txt           # Python dependencies
 ├── README.md                  # This file
 ├── bing_flights_scraper/      # Standalone scraper module
 │   ├── __init__.py
 │   └── scraper.py
-└── mcp_server.py             # MCP server implementation
+├── mcp_server.py              # MCP server implementation
+└── tests/                     # Test suite
+    ├── __init__.py
+    ├── test_mcp.py
+    └── test_e2e.py
 ```
 
 ## Installation
 
-### Prerequisites
+### Quick Start (Recommended)
 
-- Python 3.10 or higher
-- pip package manager
+The easiest way to use this MCP server is with `uvx`:
 
-### Setup Steps
+```bash
+uvx bing-flights-mcp
+```
+
+This will automatically install the package and its dependencies in an isolated environment.
+
+### Installation via pip
+
+You can also install from PyPI:
+
+```bash
+pip install bing-flights-mcp
+```
+
+After installation, install the Playwright browser:
+
+```bash
+playwright install chromium
+```
+
+### Development Installation
+
+For development or if you want to modify the code:
 
 1. **Clone or download this repository**
 
@@ -65,15 +96,40 @@ bing-flights-mcp/
 
 ### As an MCP Server
 
-Run the MCP server:
+#### Using uvx (Recommended)
+
+If you installed via PyPI, run:
+
+```bash
+uvx bing-flights-mcp
+```
+
+Or add to your MCP settings configuration:
+
+```json
+{
+  "mcpServers": {
+    "bing-flights": {
+      "command": "uvx",
+      "args": ["bing-flights-mcp"]
+    }
+  }
+}
+```
+
+#### Running from Source
+
+If you're developing or running from source:
 
 ```bash
 python mcp_server.py
 ```
 
-The server exposes two tools:
+#### Available Tools
 
-#### 1. `search_flights`
+The MCP server exposes two tools:
+
+**1. `search_flights`**
 
 Search for flight options from Bing Flights.
 
@@ -103,7 +159,7 @@ Search for flight options from Bing Flights.
 }
 ```
 
-#### 2. `get_scraper_status`
+**2. `get_scraper_status`**
 
 Check scraper health and configuration.
 
