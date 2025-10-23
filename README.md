@@ -167,7 +167,7 @@ Check scraper health and configuration.
 ```json
 {
   "status": "healthy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "capabilities": {
     "one_way_search": true,
     "round_trip_search": true,
