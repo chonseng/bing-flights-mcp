@@ -8,6 +8,10 @@ A Model Context Protocol (MCP) server that scrapes flight information from Bing 
 
 **📦 [View on PyPI](https://pypi.org/project/bing-flights-mcp/)**
 
+<a href="https://glama.ai/mcp/servers/@chonseng/bing-flights-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@chonseng/bing-flights-mcp/badge" alt="Bing Flights Server MCP server" />
+</a>
+
 ## Features
 
 - 🔍 Search for one-way and round-trip flights
